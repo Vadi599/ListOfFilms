@@ -1,9 +1,11 @@
 package com.example.listoffilms.fragments.films
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import com.example.listoffilms.adapter.MoviesListAdapter
 import com.example.listoffilms.databinding.FragmentFilmsBinding
@@ -13,9 +15,13 @@ class FilmsFragment : Fragment(), FilmsView {
 
     private lateinit var binding: FragmentFilmsBinding
 
-    lateinit var adapter: MoviesListAdapter
-
     lateinit var presenter: FilmsPresenter
+
+    private var movies: ArrayList<Movie> = arrayListOf()
+
+    private var matchedMovies: ArrayList<Movie> = arrayListOf()
+
+    var adapter: MoviesListAdapter = MoviesListAdapter(movies)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,35 +34,83 @@ class FilmsFragment : Fragment(), FilmsView {
         // Inflate the layout for this fragment
         val view = binding.root
         presenter = FilmsPresenter()
-        val listOfFilms = presenter.listOfFilms
-        adapter = MoviesListAdapter(listOfFilms)
-        binding.rvMovies.adapter = adapter
+        initRecyclerView()
+        performSearch()
         sortByDescending()
         sortByAscending()
         return view
     }
 
-    override fun showMovies(movies: List<Movie>) {
-        adapter.setResultsList(movies)
+    private fun performSearch() {
+        binding.filmSearch.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                search(query)
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                search(newText)
+                return true
+            }
+        })
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    override fun initRecyclerView() {
+        movies = arrayListOf(
+            Movie("Servants"),
+            Movie("Three Months"),
+            Movie("Creation Stories"),
+            Movie("The Burning Sea"),
+            Movie("Hellbender"),
+            Movie("Careless Crime"),
+            Movie("Family Squares"),
+            Movie("Butter"),
+            Movie("Studio 666"),
+            Movie("Friends and Strangers")
+        )
+        adapter = MoviesListAdapter(movies).also {
+            binding.rvMovies.adapter = it
+            binding.rvMovies.adapter?.notifyDataSetChanged()
+        }
     }
 
     private fun sortByDescending() {
-        val listOfFilms = presenter.listOfFilms
-        val sortredByDescendingListOfFilms = listOfFilms.sortedByDescending { it.nameFilm }
+        val sortedByDescendingListOfFilms = movies.sortedByDescending { it.nameFilm }
         binding.ivSortDescending.setOnClickListener {
-            adapter = MoviesListAdapter(sortredByDescendingListOfFilms)
+            adapter = MoviesListAdapter(sortedByDescendingListOfFilms)
             binding.rvMovies.adapter = adapter
         }
     }
 
     private fun sortByAscending() {
-        val listOfFilms = presenter.listOfFilms
-        val sortredByAscendingListOfFilms = listOfFilms.sortedBy { it.nameFilm }
+        val sortedByAscendingListOfFilms = movies.sortedBy { it.nameFilm }
         binding.ivSortAscending.setOnClickListener {
-            adapter = MoviesListAdapter(sortredByAscendingListOfFilms)
+            adapter = MoviesListAdapter(sortedByAscendingListOfFilms)
             binding.rvMovies.adapter = adapter
         }
     }
 
+    @SuppressLint("NotifyDataSetChanged")
+    override fun updateRecyclerView() {
+        binding.rvMovies.adapter.apply {
+            adapter.moviesList = matchedMovies
+            adapter.notifyDataSetChanged()
+        }
+    }
+
+    private fun search(text: String?) {
+        matchedMovies = arrayListOf()
+
+        text?.let {
+            movies.forEach { movie ->
+                if (movie.nameFilm.contains(text, true)
+                ) {
+                    matchedMovies.add(movie)
+                }
+            }
+            updateRecyclerView()
+        }
+    }
 }
 

@@ -6,36 +6,38 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.listoffilms.databinding.ListItemMoviesBinding
 import com.example.listoffilms.model.Movie
 
-class MoviesListAdapter(private var movies: List<Movie>) :
+
+class MoviesListAdapter(var moviesList: List<Movie>) :
     RecyclerView.Adapter<MoviesListAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
     ): ViewHolder {
-        val binding =
-            ListItemMoviesBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(
-            binding
+            ListItemMoviesBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
         )
     }
 
-    fun setResultsList(movies: List<Movie>) {
-        this.movies = movies
-        notifyDataSetChanged()
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.bind(
+            moviesList[position]
+        )
     }
 
-    class ViewHolder(binding: ListItemMoviesBinding) :
+    inner class ViewHolder(private var binding: ListItemMoviesBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        var nameFilm = binding.tvTitleFilm
+        fun bind(movie: Movie) {
+            binding.tvTitleFilm.text = movie.nameFilm.trim()
+        }
     }
 
     override fun getItemCount(): Int {
-        return movies.size
-    }
-
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.nameFilm.text = movies[position].nameFilm
+        return moviesList.size
     }
 
 }

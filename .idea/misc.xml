@@ -3,12 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/ListOfFilms/app/src/main/res/drawable-xxxhdpi/bg_rounded_corners_10dp_edit_text.xml" value="0.193" />
+        <entry key="..\:/ListOfFilms/app/src/main/res/drawable-xxxhdpi/ic_search_contact.xml" value="0.193" />
         <entry key="..\:/ListOfFilms/app/src/main/res/drawable/ic_sort_ascending.xml" value="0.1655" />
         <entry key="..\:/ListOfFilms/app/src/main/res/drawable/ic_sort_descending.xml" value="0.1655" />
         <entry key="..\:/ListOfFilms/app/src/main/res/drawable/ic_sorting_icon.xml" value="0.1655" />
         <entry key="..\:/ListOfFilms/app/src/main/res/drawable/not_find_image.xml" value="0.152" />
         <entry key="..\:/ListOfFilms/app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="..\:/ListOfFilms/app/src/main/res/layout/fragment_films.xml" value="0.33" />
+        <entry key="..\:/ListOfFilms/app/src/main/res/layout/fragment_films.xml" value="0.25" />
         <entry key="..\:/ListOfFilms/app/src/main/res/layout/fragment_splash.xml" value="0.16" />
         <entry key="..\:/ListOfFilms/app/src/main/res/layout/list_item_movies.xml" value="0.22" />
       </map>
