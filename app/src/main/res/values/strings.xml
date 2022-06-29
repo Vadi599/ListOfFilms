@@ -1,4 +1,16 @@
 <resources>
     <string name="app_name">List Of Films</string>
     <string name="movie_search">movie search</string>
+    <string name="all">ALL</string>
+    <string name="thriller">THRILLER</string>
+    <string name="comedy">COMEDY</string>
+    <string name="documentary">DOCUMENTARY</string>
+    <string name="drama">DRAMA</string>
+    <string name="year_2022">2022</string>
+    <string name="year_2021">2021</string>
+    <string name="year_2020">2020</string>
+    <string name="year_2018">2018</string>
+    <string name="year_2015">2015</string>
+    <string name="year_2014">2014</string>
+    <string name="year_2017">2017</string>
 </resources>

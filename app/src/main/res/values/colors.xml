@@ -10,4 +10,6 @@
     <color name="back_blue">#0C1F5D</color>
     <color name="gray">#888A94</color>
     <color name="titan_white">#E7ECFF</color>
+    <color name="darker_gray">#A0A0A0</color>
+    <color name="red">#FF0000</color>
 </resources>

@@ -40,7 +40,7 @@
             app:layout_constraintStart_toStartOf="@+id/constraintLayout"
             app:layout_constraintTop_toTopOf="parent" />
 
-       <!-- <ImageView
+        <ImageView
             android:id="@+id/iv_film_image"
             android:layout_width="90dp"
             android:layout_height="90dp"
@@ -50,41 +50,50 @@
             tools:src="@drawable/ic_camera"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>-->
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
         <TextView
-            android:id="@+id/tv_title_film"
+            android:id="@+id/tv_name_film"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="12dp"
             android:ellipsize="end"
             android:fontFamily="@font/golos_text_demi_bold"
-            android:textColorLink="@color/black"
-            android:textSize="14sp"
+            android:textSize="16sp"
             android:maxLines="2"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iv_film_image"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            tools:text="‘Taste’ Review: A Slow, Sensual Hallucination Set in Vietnam" />
+            tools:text="Servants" />
 
-       <!-- <TextView
-            android:id="@+id/tv_description_film"
-            android:layout_width="0dp"
+        <TextView
+            android:id="@+id/tv_genre_film"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="12dp"
             android:layout_marginBottom="10dp"
-            android:ellipsize="end"
             android:fontFamily="@font/golos_text_regular"
-            android:maxLines="3"
             android:textColor="@color/gray"
             android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/iv_film_image"
-            app:layout_constraintTop_toBottomOf="@+id/tv_title_film"
-            app:layout_constraintBottom_toBottomOf="parent"
-            tools:text="The first feature film from the director Le Bao is a spare series of handsome tableaux that ultimately feels undercooked." />-->
+            app:layout_constraintTop_toBottomOf="@id/tv_name_film"
+            tools:text="Thriller" />
+
+        <TextView
+            android:id="@+id/tv_year_film"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="10dp"
+            android:fontFamily="@font/golos_text_regular"
+            android:textColor="@color/gray"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@id/tv_name_film"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="2022" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

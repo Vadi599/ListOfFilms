@@ -9,6 +9,12 @@ interface FilmsView : MvpView {
 
     fun initRecyclerView()
 
-    fun updateRecyclerView()
+    fun movieFiltering()
+
+    fun sortByDescending()
+
+    fun sortByAscending()
+
+    fun unSelectAllFilterButtons()
 
 }

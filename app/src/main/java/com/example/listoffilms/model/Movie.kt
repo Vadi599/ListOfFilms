@@ -1,5 +1,8 @@
 package com.example.listoffilms.model
 
 class Movie(
-    val nameFilm: String
+    var nameFilm: String,
+    var imageFilm: String,
+    var yearFilm: String,
+    var genreFilm: String
 )

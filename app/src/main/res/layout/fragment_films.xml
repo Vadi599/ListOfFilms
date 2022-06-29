@@ -16,6 +16,132 @@
         app:layout_constraintTop_toTopOf="parent"
         app:queryBackground="@null" />
 
+    <LinearLayout
+        android:id="@+id/ll_genresFilter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/film_search">
+
+        <Button
+            android:id="@+id/btn_allFilter"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/darker_gray"
+            android:text="@string/all"
+            android:textColor="@color/red" />
+
+        <Button
+            android:id="@+id/btn_thrillerFilter"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/darker_gray"
+            android:text="@string/thriller"
+            android:textColor="@color/red" />
+
+        <Button
+            android:id="@+id/btn_comedyFilter"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/darker_gray"
+            android:text="@string/comedy"
+            android:textColor="@color/red" />
+
+        <Button
+            android:id="@+id/btn_documentaryFilter"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/darker_gray"
+            android:text="@string/documentary"
+            android:textColor="@color/red" />
+
+        <Button
+            android:id="@+id/btn_dramaFilter"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/darker_gray"
+            android:text="@string/drama"
+            android:textColor="@color/red" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_yearsFilter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/ll_genresFilter">
+
+        <Button
+            android:id="@+id/btn_2014Filter"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/darker_gray"
+            android:text="@string/year_2014"
+            android:textColor="@color/red" />
+
+        <Button
+            android:id="@+id/btn_2015Filter"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/darker_gray"
+            android:text="@string/year_2015"
+            android:textColor="@color/red" />
+
+        <Button
+            android:id="@+id/btn_2017Filter"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/darker_gray"
+            android:text="@string/year_2017"
+            android:textColor="@color/red" />
+
+        <Button
+            android:id="@+id/btn_2018Filter"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/darker_gray"
+            android:text="@string/year_2018"
+            android:textColor="@color/red" />
+
+        <Button
+            android:id="@+id/btn_2020Filter"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/darker_gray"
+            android:text="@string/year_2020"
+            android:textColor="@color/red" />
+
+        <Button
+            android:id="@+id/btn_2021Filter"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/darker_gray"
+            android:text="@string/year_2021"
+            android:textColor="@color/red" />
+
+        <Button
+            android:id="@+id/btn_2022Filter"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/darker_gray"
+            android:text="@string/year_2022"
+            android:textColor="@color/red" />
+
+    </LinearLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_movies"
         android:layout_width="match_parent"
@@ -23,7 +149,7 @@
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/film_search"
+        app:layout_constraintTop_toBottomOf="@id/ll_yearsFilter"
         tools:listitem="@layout/list_item_movies" />
 
     <ImageView
